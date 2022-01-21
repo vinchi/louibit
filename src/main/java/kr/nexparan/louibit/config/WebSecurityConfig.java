@@ -1,0 +1,68 @@
+package kr.nexparan.louibit.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.sql.DataSource;
+
+@Configuration// 빈등록
+@EnableWebSecurity// 시큐리티 필터가 등록된다.
+@EnableGlobalMethodSecurity(prePostEnabled = true)// 특정 주소로 접근을 하면 권한 및 인증을 미리 체크하겠다는 뜻
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http
+                    .csrf().disable()
+                    .authorizeRequests()
+                    .antMatchers("/", "/account/**")
+                    .permitAll()
+                    .anyRequest()
+                    .authenticated()
+                .and()
+                    .formLogin()
+                    .loginPage("/account/login")
+                    .permitAll()
+                .and()
+                    .logout()
+                    .permitAll();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select email, password, enabled "
+                        + "from User "
+                        + "where email = ?")
+                .authoritiesByUsernameQuery("select email, name "
+                        + "from User_Role ur inner join User u on ur.userId = u.id "
+                        + "inner join Role r on ur.roleId = r.id "
+                        + "where email = ?");
+    }
+
+    @Bean
+    @Lazy
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    //인증을 제외해준다. 실서버시 없애야 함
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/**").antMatchers("/admin/");
+//    }
+}
