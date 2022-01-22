@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head('Louibit - Board(List)')">
+
+</head>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/vendor/choices/css/choices.min.css}">
+
+<body>
+
+<!-- Header START -->
+<header class="navbar-light navbar-sticky header-static" th:replace="template :: header">
+</header>
+
+<main>
+
+    <!-- =======================
+    Main Banner START -->
+    <section class="pt-0">
+        <!-- Main banner background image -->
+        <div class="container-fluid px-0">
+            <div class="bg-blue h-50px h-md-100px rounded-0" style="background:url(../assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+            </div>
+        </div>
+        <div class="container mt-n4">
+            <div class="row">
+                <!-- Profile banner START -->
+                <div class="col-12">
+                    <div class="card bg-transparent card-body p-0">
+                        <div class="row d-flex justify-content-between">
+                            <!-- Avatar -->
+                            <div class="col-auto mt-4 mt-md-0">
+                                <div class="avatar avatar-xxl mt-n3">
+                                    <img class="avatar-img rounded-circle border border-white border-3 shadow" src="../assets/images/avatar/01.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- Profile info -->
+                            <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                <div>
+                                    <h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                        <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
+                                        <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Profile banner END -->
+
+                    <!-- Advanced filter responsive toggler START -->
+                    <!-- Divider -->
+                    <hr class="d-xl-none">
+                    <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                        <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                        <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Main Banner END -->
+
+    <!-- =======================
+    Inner part START -->
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+
+                <!-- Right sidebar START -->
+                <div class="col-xl-3">
+                    <!-- Responsive offcanvas body START -->
+                    <nav class="navbar navbar-light navbar-expand-xl mx-0">
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <!-- Offcanvas header -->
+                            <div class="offcanvas-header bg-light">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <!-- Offcanvas body -->
+                            <div class="offcanvas-body p-3 p-xl-0">
+                                <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+                                    <!-- Dashboard menu -->
+                                    <div class="list-group list-group-dark list-group-borderless">
+                                        <a class="list-group-item" href="#" th:href="@{/board/list}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Notice</a>
+                                        <a class="list-group-item" href="#" th:href="@{/board/faqs}"><i class="bi bi-basket fa-fw me-2"></i>FAQ</a>
+                                        <a class="list-group-item" href="#" th:href="@{/board/contacts}"><i class="bi bi-graph-up fa-fw me-2"></i>Contact us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- Responsive offcanvas body END -->
+                </div>
+                <!-- Right sidebar END -->
+
+                <!-- Main content START -->
+                <div class="col-xl-9">
+                    <!-- Card START -->
+                    <div class="card border bg-transparent rounded-3">
+                        <!-- Card header START -->
+                        <div class="card-header bg-transparent border-bottom">
+                            <h3 class="mb-0" th:text="#{s_notice}">My Students List </h3>
+                        </div>
+                        <!-- Card header END -->
+
+                        <!-- Card body START -->
+                        <div class="card-body">
+
+                            <!-- Search and select START -->
+                            <div class="row g-3 align-items-center justify-content-between mb-4">
+                                <!-- Search -->
+                                <div class="col-md-8">
+                                    <form class="rounded position-relative" method="GET" th:action="@{/notice}">
+                                        <input class="form-control pe-5 bg-transparent" type="search" id="searchText" name="searchText" placeholder="Search" aria-label="Search" th:value="${param.searchText}">
+                                        <button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+                                    </form>
+                                </div>
+
+                                <!-- Select option -->
+                                <div class="col-md-3">
+                                    <!-- Short by filter -->
+                                    <form>
+                                        <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice border-0 z-index-9 bg-transparent choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Sort by</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Sort by</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Sort by" placeholder=""><div class="choices__list" role="listbox"><div id="choices--6e8m-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Sort by</div><div id="choices--6e8m-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="Free" data-select-text="Press to select" data-choice-selectable="">Free</div><div id="choices--6e8m-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="Newest" data-select-text="Press to select" data-choice-selectable="">Newest</div><div id="choices--6e8m-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Oldest" data-select-text="Press to select" data-choice-selectable="">Oldest</div></div></div></div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Search and select END -->
+
+                            <!-- Student list table START -->
+                            <div class="table-responsive border-0">
+                                <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+                                    <!-- Table head -->
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 rounded-start">#</th>
+                                        <th scope="col" class="border-0">Title</th>
+                                        <th scope="col" class="border-0">Author</th>
+                                        <th scope="col" class="border-0">Enrolled date</th>
+                                        <th scope="col" class="border-0 rounded-end">Count</th>
+                                    </tr>
+                                    </thead>
+
+                                    <!-- Table body START -->
+                                    <tbody>
+                                    <!-- Table item -->
+                                    <tr th:each="board : ${boards}">
+                                        <!-- Table data -->
+                                        <td th:text="${board.id}">
+                                            10
+                                        </td>
+
+                                        <!-- Table data -->
+                                        <td class="text-center text-sm-start">
+                                            <a th:text="${board.title}" th:href="@{/board/boardView(id=${board.id})}"></a>
+                                        </td>
+
+                                        <!-- Table data -->
+                                        <td th:text="${board.user.username}">
+                                            admin
+                                        </td>
+
+                                        <!-- Table data -->
+                                        <td th:text="${board.createDate}">
+                                            4/9/2021
+                                        </td>
+
+                                        <!-- Table data -->
+                                        <td th:text="${board.count}">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <!-- Table body END -->
+                                </table>
+                            </div>
+                            <!-- Student list table END -->
+
+                            <!-- Pagination START -->
+                            <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
+                                <!-- Content -->
+                                <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+                                <!-- Pagination -->
+                                <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+                                    <ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
+                                        <li class="page-item mb-0" th:classappend="${1 == boards.pageable.pageNumber + 1} ? 'disabled'">
+                                            <a class="page-link" href="#" th:href="@{/notice(page=${boards.pageable.pageNumber - 1}, searchText=${param.searchText})}" $tabindex="-1">
+                                                <i class="fas fa-angle-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="page-item mb-0" th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled'" th:each="i: ${#numbers.sequence(startPage, endPage)}">
+                                            <a class="page-link" href="#" th:href="@{/notice(page=${i - 1}, searchText=${param.searchText})}" th:text="${i}">2</a>
+                                        </li>
+                                        <li class="page-item mb-0" th:classappend="${endPage == boards.pageable.pageNumber + 1} ? 'disabled'">
+                                            <a class="page-link" href="#" th:href="@{/notice(page=${boards.pageable.pageNumber + 1}, searchText=${param.searchText})}" >
+                                                <i class="fas fa-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Pagination END -->
+                        </div>
+                        <!-- Card body START -->
+                    </div>
+                    <!-- Card END -->
+                </div>
+                <!-- Main content END -->
+            </div><!-- Row END -->
+        </div>
+    </section>
+    <!-- =======================
+    Inner part END -->
+
+</main>
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-90deg-up position-absolute top-50 start-50 translate-middle"></i></div>
+
+<!-- =======================
+Footer START -->
+<footer class="pt-5" th:replace="template :: footer">
+
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Bootstrap JS -->
+<script th:src="@{/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Vendors -->
+<script th:src="@{/assets/vendor/tiny-slider/tiny-slider.js}"></script>
+<script th:src="@{/assets/vendor/glightbox/js/glightbox.js}"></script>
+<script th:src="@{/assets/vendor/purecounterjs/dist/purecounter_vanilla.js}"></script>
+<script th:src="@{/assets/vendor/choices/js/choices.min.js}"></script>
+
+<!-- Template Functions -->
+<script th:src="@{/assets/js/functions.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head('Louibit - Board(Faqs)')">
+</head>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/vendor/choices/css/choices.min.css}">
+
+<body>
+
+<!-- Header START -->
+<header class="navbar-light navbar-sticky header-static" th:replace="template :: header">
+</header>
+
+<main>
+    <!-- =======================
+    Main Banner START -->
+    <section class="pt-0">
+        <!-- Main banner background image -->
+        <div class="container-fluid px-0">
+            <div class="bg-blue h-50px h-md-100px rounded-0" style="background:url(../assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+            </div>
+        </div>
+        <div class="container mt-n4">
+            <div class="row">
+                <!-- Profile banner START -->
+                <div class="col-12">
+                    <div class="card bg-transparent card-body p-0">
+                        <div class="row d-flex justify-content-between">
+                            <!-- Avatar -->
+                            <div class="col-auto mt-4 mt-md-0">
+                                <div class="avatar avatar-xxl mt-n3">
+                                    <img class="avatar-img rounded-circle border border-white border-3 shadow" th:src="@{/assets/images/avatar/01.jpg}" alt="">
+                                </div>
+                            </div>
+                            <!-- Profile info -->
+                            <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                <div>
+                                    <h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                        <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
+                                        <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Profile banner END -->
+
+                    <!-- Advanced filter responsive toggler START -->
+                    <!-- Divider -->
+                    <hr class="d-xl-none">
+                    <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                        <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                        <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Main Banner END -->
+
+    <!-- =======================
+    Inner part START -->
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+
+                <!-- Right sidebar START -->
+                <div class="col-xl-3">
+                    <!-- Responsive offcanvas body START -->
+                    <nav class="navbar navbar-light navbar-expand-xl mx-0">
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <!-- Offcanvas header -->
+                            <div class="offcanvas-header bg-light">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <!-- Offcanvas body -->
+                            <div class="offcanvas-body p-3 p-xl-0">
+                                <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+                                    <!-- Dashboard menu -->
+                                    <div class="list-group list-group-dark list-group-borderless">
+                                        <a class="list-group-item" href="#" th:href="@{/board/list}"><i class="bi bi bi-bell fa-fw me-2"></i>Notice</a>
+                                        <a class="list-group-item" href="#" th:href="@{/board/faqs}"><i class="bi bi-basket fa-fw me-2"></i>FAQ</a>
+                                        <a class="list-group-item" href="#" th:href="@{/board/contacts}"><i class="bi bi-graph-up fa-fw me-2"></i>Contact us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- Responsive offcanvas body END -->
+                </div>
+                <!-- Right sidebar END -->
+
+                <!-- Main content START -->
+                <div class="col-xl-9">
+                    <section class="pt-0 pb-0" style="background-image:url(../assets/images/element/map.svg); background-position: center left; background-size: cover;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-xl-6 text-center mx-auto">
+                                    <!-- Title -->
+                                    <h6 class="text-primary">Contact us</h6>
+                                    <h1 class="mb-4">We're here to help!</h1>
+                                </div>
+                            </div>
+
+                            <!-- Contact info box -->
+                            <div class="row g-4 g-md-5 mt-0 mt-lg-3">
+                                <!-- Box item -->
+                                <div class="col-lg-4 mt-lg-0">
+                                    <div class="card card-body bg-primary shadow py-5 text-center h-100">
+                                        <!-- Title -->
+                                        <h5 class="text-white mb-3">Customer Support</h5>
+                                        <ul class="list-inline mb-0">
+                                            <!-- Address -->
+                                            <li class="list-item mb-3">
+                                                <a href="#" class="text-white"> <i class="fas fa-fw fa-map-marker-alt me-2 mt-1"></i>Chicago HQ Estica Cop.  Macomb, MI 48042 </a>
+                                            </li>
+                                            <!-- Phone number -->
+                                            <li class="list-item mb-3">
+                                                <a href="#" class="text-white"> <i class="fas fa-fw fa-phone-alt me-2"></i>(423) 733-8222 </a>
+                                            </li>
+                                            <!-- Email id -->
+                                            <li class="list-item mb-0">
+                                                <a href="#" class="text-white"> <i class="far fa-fw fa-envelope me-2"></i>example@email.com </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Box item -->
+                                <div class="col-lg-4 mt-lg-0">
+                                    <div class="card card-body shadow py-5 text-center h-100">
+                                        <!-- Title -->
+                                        <h5 class="mb-3">Contact Address</h5>
+                                        <ul class="list-inline mb-0">
+                                            <!-- Address -->
+                                            <li class="list-item mb-3 h6 fw-light">
+                                                <a href="#"> <i class="fas fa-fw fa-map-marker-alt me-2 mt-1"></i>2492 Centennial NW, Acworth, GA, 30102 </a>
+                                            </li>
+                                            <!-- Phone number -->
+                                            <li class="list-item mb-3 h6 fw-light">
+                                                <a href="#"> <i class="fas fa-fw fa-phone-alt me-2"></i>+896-789-546 </a>
+                                            </li>
+                                            <!-- Email id -->
+                                            <li class="list-item mb-0 h6 fw-light">
+                                                <a href="#"> <i class="far fa-fw fa-envelope me-2"></i>example@email.com </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Box item -->
+                                <div class="col-lg-4 mt-lg-0">
+                                    <div class="card card-body shadow py-5 text-center h-100">
+                                        <!-- Title -->
+                                        <h5 class="mb-3">Main Office Address</h5>
+                                        <ul class="list-inline mb-0">
+                                            <!-- Address -->
+                                            <li class="list-item mb-3 h6 fw-light">
+                                                <a href="#"> <i class="fas fa-fw fa-map-marker-alt me-2 mt-1"></i>2002 Horton Ford Rd, Eidson, TN, 37731 </a>
+                                            </li>
+                                            <!-- Phone number -->
+                                            <li class="list-item mb-3 h6 fw-light">
+                                                <a href="#"> <i class="fas fa-fw fa-phone-alt me-2"></i>(678) 324-1251 </a>
+                                            </li>
+                                            <!-- Email id -->
+                                            <li class="list-item mb-0 h6 fw-light">
+                                                <a href="#"> <i class="far fa-fw fa-envelope me-2"></i>example@email.com </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="row g-4 g-lg-0 align-items-center">
+
+                                <div class="col-md-6 align-items-center text-center">
+                                    <!-- Image -->
+                                    <img th:src="@{/assets/images/element/contact.svg}" class="h-400px" alt="">
+
+                                    <!-- Social media button -->
+                                    <div class="d-sm-flex align-items-center justify-content-center mt-2 mt-sm-4">
+                                        <h5 class="mb-0">Follow us on:</h5>
+                                        <ul class="list-inline mb-0 ms-sm-2">
+                                            <li class="list-inline-item"> <a class="fs-5 me-1 text-facebook" href="#"><i class="fab fa-fw fa-facebook-square"></i></a> </li>
+                                            <li class="list-inline-item"> <a class="fs-5 me-1 text-instagram" href="#"><i class="fab fa-fw fa-instagram"></i></a> </li>
+                                            <li class="list-inline-item"> <a class="fs-5 me-1 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a> </li>
+                                            <li class="list-inline-item"> <a class="fs-5 me-1 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a> </li>
+                                            <li class="list-inline-item"> <a class="fs-5 me-1 text-dribbble" href="#"><i class="fas fa-fw fa-basketball-ball"></i></a> </li>
+                                            <li class="list-inline-item"> <a class="fs-5 me-1 text-pinterest" href="#"><i class="fab fa-fw fa-pinterest"></i></a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Contact form START -->
+                                <div class="col-md-6">
+                                    <!-- Title -->
+                                    <h2 class="mt-4 mt-md-0">Let's talk</h2>
+                                    <p>To request a quote or want to meet up for coffee, contact us directly or fill out the form and we will get back to you promptly</p>
+
+                                    <form>
+                                        <!-- Name -->
+                                        <div class="mb-4 bg-light-input">
+                                            <label for="yourName" class="form-label">Your name *</label>
+                                            <input type="text" class="form-control form-control-lg" id="yourName">
+                                        </div>
+                                        <!-- Email -->
+                                        <div class="mb-4 bg-light-input">
+                                            <label for="emailInput" class="form-label">Email address *</label>
+                                            <input type="email" class="form-control form-control-lg" id="emailInput">
+                                        </div>
+                                        <!-- Message -->
+                                        <div class="mb-4 bg-light-input">
+                                            <label for="textareaBox" class="form-label">Message *</label>
+                                            <textarea class="form-control" id="textareaBox" rows="4"></textarea>
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="d-grid">
+                                            <button class="btn btn-lg btn-primary mb-0" type="button">Send Message</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Contact form END -->
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Main content END -->
+                </div><!-- Row END -->
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Inner part END -->
+
+</main>
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-90deg-up position-absolute top-50 start-50 translate-middle"></i></div>
+
+<!-- =======================
+Footer START -->
+<footer class="pt-5" th:replace="template :: footer">
+
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Bootstrap JS -->
+<script th:src="@{/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Vendors -->
+<script th:src="@{/assets/vendor/tiny-slider/tiny-slider.js}"></script>
+<script th:src="@{/assets/vendor/glightbox/js/glightbox.js}"></script>
+<script th:src="@{/assets/vendor/purecounterjs/dist/purecounter_vanilla.js}"></script>
+<script th:src="@{/assets/vendor/choices/js/choices.min.js}"></script>
+
+<!-- Template Functions -->
+<script th:src="@{/assets/js/functions.js}"></script>
+
+</body>
+</html>

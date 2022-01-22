@@ -175,7 +175,7 @@
                         <!-- Button -->
                         <a href="#" class="btn btn-lg btn-danger-soft me-2 mb-4 mb-sm-0">Get Started</a>
                         <!-- Video button -->
-                        <a data-glightbox data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" class="ms-0 ms-sm-4 d-block">
+                        <a data-glightbox data-gallery="office-tour" href="https://www.youtube.com/watch?v=5U1t6gZlZbE" class="ms-0 ms-sm-4 d-block">
                             <div class="btn btn-round btn-primary-shadow mb-0 me-3 align-middle d-inline-block"> <i class="fas fa-play"></i></div>
                             <div class="align-middle d-inline-block">
                                 <h6 class="mb-0 fw-normal">Watch video</h6>
@@ -351,6 +351,9 @@
 
 </main>
 
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-90deg-up position-absolute top-50 start-50 translate-middle"></i></div>
+
 <!-- =======================
 Footer START -->
 <footer class="pt-5" th:replace="template :: footer">
@@ -359,38 +362,18 @@ Footer START -->
 <!-- =======================
 Footer END -->
 
-<!-- Back to top -->
-<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+
 
 <!-- Bootstrap JS -->
-<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
 
 <!-- Vendors -->
-<script src="assets/vendor/tiny-slider/tiny-slider.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.js"></script>
-<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script th:src="@{/assets/vendor/tiny-slider/tiny-slider.js}"></script>
+<script th:src="@{/assets/vendor/glightbox/js/glightbox.js}"></script>
+<script th:src="@{/assets/vendor/purecounterjs/dist/purecounter_vanilla.js}"></script>
 
 <!-- Template Functions -->
-<script src="assets/js/functions.js"></script>
-<!-- TradingView Widget BEGIN -->
-<!-- <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-<script type="text/javascript">
-	new TradingView.widget({
-		"width": 980,
-		"height": 610,
-		"symbol": "NASDAQ:AAPL",
-		"interval": "D",
-		"timezone": "Etc/UTC",
-		"theme": "light",
-		"style": "1",
-		"locale": "kr",
-		"toolbar_bg": "#f1f3f6",
-		"enable_publishing": false,
-		"allow_symbol_change": true,
-		"container_id": "tradingview_d21a8"
-  	});
-</script> -->
-<!-- TradingView Widget END -->
+<script th:src="@{/assets/js/functions.js}"></script>
 
 </body>
 </html>

@@ -83,17 +83,17 @@
                         <ul class="dropdown-menu" aria-labelledby="serviceMenu">
                             <!-- Dropdown submenu Notice -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="#" th:text="#{s_notice}">Notice</a>
+                                <a class="dropdown-item" href="#" th:href="@{/board/list}" th:text="#{s_notice}">Notice</a>
                             </li>
 
                             <!-- Dropdown submenu Faqs -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="#" th:text="#{s_faq}">Faqs</a>
+                                <a class="dropdown-item" href="#" th:href="@{/board/faqs}" th:text="#{s_faq}">Faqs</a>
                             </li>
 
                             <!-- Dropdown submenu Contact us -->
                             <li>
-                                <a class="dropdown-item" href="#" th:text="#{s_contact}">Contact us</a>
+                                <a class="dropdown-item" href="#" th:href="@{/board/contact}" th:text="#{s_contact}">Contact us</a>
                             </li>
                         </ul>
                     </li>
@@ -104,17 +104,17 @@
                         <ul class="dropdown-menu" aria-labelledby="mypageMenu">
                             <!-- Dropdown submenu History -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="#" th:text="#{history}">History</a>
+                                <a class="dropdown-item" href="#" th:href="@{/mypage/history}" th:text="#{history}">History</a>
                             </li>
 
                             <!-- Dropdown submenu referral -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="#" th:text="#{referral}">Referral</a>
+                                <a class="dropdown-item" href="#" th:href="@{/mypage/referral}" th:text="#{referral}">Referral</a>
                             </li>
 
                             <!-- Dropdown submenu fee -->
                             <li>
-                                <a class="dropdown-item" href="#" th:text="#{fee}">Fee</a>
+                                <a class="dropdown-item" href="#" th:href="@{/mypage/fee}"th:text="#{fee}">Fee</a>
                             </li>
                         </ul>
                     </li>
@@ -136,8 +136,10 @@
             </div>
             <!-- Main navbar END -->
 
+            <!-- Login button -->
+            <a type="button" class="btn btn-warning" sec:authorize="!isAuthenticated()" th:href="@{/account/login}">Login</a>
             <!-- Profile START -->
-            <div class="dropdown ms-1 ms-lg-0">
+            <div class="dropdown ms-1 ms-lg-0" sec:authorize="isAuthenticated()" >
                 <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="avatar-img rounded-circle" th:src="@{/assets/images/avatar/01.jpg}" alt="avatar">
                 </a>
@@ -150,8 +152,8 @@
                                 <img class="avatar-img rounded-circle shadow" th:src="@{/assets/images/avatar/01.jpg}" alt="avatar">
                             </div>
                             <div>
-                                <a class="h6" href="#">Lori Ferguson</a>
-                                <p class="small m-0">example@gmail.com</p>
+                                <a class="h6" href="#" sec:authentication="name">Email</a>
+                                <p class="small m-0" sec:authentication="principal.authorities">Auth</p>
                             </div>
                         </div>
                         <hr>
