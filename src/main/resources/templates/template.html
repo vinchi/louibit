@@ -67,12 +67,12 @@
                         <ul class="dropdown-menu" aria-labelledby="pagesDeal">
                             <!-- Dropdown submenu -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="#" th:text="#{spot}">Spot</a>
+                                <a class="dropdown-item" href="#" th:href="@{/blockchain/spot}" th:text="#{spot}">Spot</a>
                             </li>
 
                             <!-- Dropdown submenu -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="#" th:text="#{futures}">Futures</a>
+                                <a class="dropdown-item" href="#" th:href="@{/blockchain/futures}" th:text="#{futures}">Futures</a>
                             </li>
                         </ul>
                     </li>
@@ -93,7 +93,7 @@
 
                             <!-- Dropdown submenu Contact us -->
                             <li>
-                                <a class="dropdown-item" href="#" th:href="@{/board/contact}" th:text="#{s_contact}">Contact us</a>
+                                <a class="dropdown-item" href="#" th:href="@{/board/contacts}" th:text="#{s_contact}">Contact us</a>
                             </li>
                         </ul>
                     </li>
