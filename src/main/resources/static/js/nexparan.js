@@ -2,6 +2,7 @@ window.addEventListener("load", function(event) {
     let ws1 = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
 
     let stockPriceElement = document.getElementById("stock-price");
+    let stockPriceElement2 = document.getElementById("stock-price2");
 
     let lastPrice = null;
 
@@ -11,12 +12,12 @@ window.addEventListener("load", function(event) {
         //console.log(price);
         stockPriceElement.innerText = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 //        stockPriceElement1.innerText = "$" + price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-//        stockPriceElement2.innerText = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-//        + (!lastPrice || lastPrice === price ? "" : price > lastPrice ? ' 🠕' : ' 🠗');
+        stockPriceElement2.innerText = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+        + (!lastPrice || lastPrice === price ? "" : price > lastPrice ? ' 🠕' : ' 🠗');
 
         stockPriceElement.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
 //        stockPriceElement1.style.color = 'white';
-//        stockPriceElement2.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
+        stockPriceElement2.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
 
         lastPrice = price;
     }
@@ -180,7 +181,7 @@ window.addEventListener("load", function(event) {
 
     document.getElementById("custom-slider1").addEventListener("input", function(event) {
         let value = event.target.value;
-        console.group(value);
+        //console.group(value);
         document.getElementById("leverage").value = value;
     });
 
@@ -196,5 +197,7 @@ window.addEventListener("load", function(event) {
         //console.log(value);
         document.getElementById("leverage4").value = value;
     });
+
+
 });
 

@@ -1,4 +1,4 @@
-new TradingView.widget(
+let widget = new TradingView.widget(
     {
         "autosize": true,
         "symbol": "BINANCE:BTCUSDT",
